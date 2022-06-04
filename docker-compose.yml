@@ -45,6 +45,14 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
+  adminer:
+    image: adminer:latest
+    container_name: adminer
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+    restart: always
+    ports:
+      - 9999:8080
 volumes:
   mysql_data:
   bundle_data:
