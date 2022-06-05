@@ -11,13 +11,21 @@ html
     = javascript_include_tag " ", "data-turbo-track": "reload", defer: true
   body
     .container
-      .header.d-flex.flex-row-reverse.bd-highlight.gap-3.mt-2.mb-2
-        = link_to "Login", new_user_session_path, class: "btn btn-success", role: "button"
-        = link_to "Register", new_user_registration_path, class: "btn btn-primary", role: "button"
+      .header.bd-highlight.gap-3.mt-2.mb-2
+        .row
+          h3.d-flex.justify-content-start.col-6
+            = link_to "Car Rental", root_path
+          .d-flex.justify-content-end.col-6.gap-3
+            - if user_signed_in?
+              =current_user.email
+              = link_to "Logout", destroy_user_session_path
+            - else
+              = link_to "Login", new_user_session_path, class: "btn btn-success", role: "button"
+              = link_to "Register", new_user_registration_path, class: "btn btn-primary", role: "button"
       .content
         - if notice
-          p.notice= notice
+          p.notice.alert.alert-primary = notice
         - elsif alert
-          p.alert= alert
+          p.alert.alert.alert-warning= alert
         = yield
       .footer
