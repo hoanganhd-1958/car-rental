@@ -4,5 +4,6 @@ class User < ApplicationRecord
   validates :phone_number, :address, presence: true
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :confirmable
 end
