@@ -78,4 +78,6 @@ Rails.application.configure do
     port: ENV["MAIL_PORT"]
   }
 
+  config.active_job.queue_adapter = :sidekiq
+
 end
