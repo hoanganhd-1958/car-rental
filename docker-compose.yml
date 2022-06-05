@@ -53,6 +53,13 @@ services:
     restart: always
     ports:
       - 9999:8080
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    container_name: mailcatcher
+    ports:
+      - '1080:1080'
+      - '1025:1025'
 volumes:
   mysql_data:
   bundle_data:
