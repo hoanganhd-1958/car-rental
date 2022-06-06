@@ -17,7 +17,7 @@ html
             = link_to "Car Rental", root_path
           .d-flex.justify-content-end.col-6.gap-3
             - if user_signed_in?
-              =current_user.email
+              = current_user.email
               = link_to "Logout", destroy_user_session_path
             - else
               = link_to "Login", new_user_session_path, class: "btn btn-success", role: "button"

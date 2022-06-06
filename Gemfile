@@ -82,3 +82,5 @@ gem 'slim-rails'
 gem 'devise'
 
 gem 'sidekiq'
+
+gem 'ransack'
