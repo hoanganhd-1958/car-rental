@@ -2,7 +2,9 @@ class CarsController < ApplicationController
   def index
     @brands = Brand.all
 
-    @c = Car.ransack(params[:q])
-    @cars = @c.result(distinct: true)
+    @search = Car.ransack(params[:q])
+    @cars = @search.result(distinct: true)
+
+    @cars = @cars.order('created_at DESC').page(params[:page]).per(9)
   end
 end

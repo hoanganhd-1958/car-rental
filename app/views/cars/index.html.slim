@@ -3,13 +3,13 @@
     h3
       | Find your dream car
     hr
-    = search_form_for @c do |f|
+    = search_form_for @search do |f|
       .input-group.mb-3
         = f.search_field :name_cont, class: "form-control", placeholder: "Fill name of car", autofocus: true, type: "text"
       h5
         | Brand
       .input-group.mb-3
-        = f.select :brand_id_eq, options_from_collection_for_select(@brands, "id", "name", f.object.brand_id_eq), {}, { class: "form-select" }
+        = f.select :brand_id_eq, options_from_collection_for_select(@brands, "id", "name", f.object.brand_id_eq), { include_blank: true }, { class: "form-select" }
       h5
         | Price
       .input-group.mb-3
@@ -58,22 +58,5 @@
           | No Data
 
     .row
-      nav[aria-label="Page navigation example"]
-        ul.pagination.justify-content-center
-          li.page-item
-            a.page-link[href="#" aria-label="Next"]
-              span[aria-hidden="true"]
-                | Previous
-          li.page-item
-            a.page-link[href="#"]
-              | 1
-          li.page-item
-            a.page-link[href="#"]
-              | 2
-          li.page-item
-            a.page-link[href="#"]
-              | 3
-          li.page-item
-            a.page-link[href="#" aria-label="Previous"]
-              span[aria-hidden="true"]
-                | Next
+      .d-flex.justify-content-center
+        = paginate @cars, window: 2
