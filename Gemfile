@@ -86,3 +86,5 @@ gem 'sidekiq'
 gem 'ransack'
 
 gem 'kaminari'
+
+gem 'rubocop'

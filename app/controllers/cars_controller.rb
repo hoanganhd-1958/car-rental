@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# CarsController
 class CarsController < ApplicationController
   def index
     @brands = Brand.all
